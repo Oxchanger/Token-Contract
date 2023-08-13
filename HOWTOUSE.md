@@ -22,7 +22,7 @@ OXCH uses the Synthetix Staking Rewards Contract, allowing users to earn rewards
 
 2. Open Trustwallet and create a wallet.
 
-3. Make sure you own some Polygon Matics. If not, buy them from a reputable exchange like Changelly or Binance.
+3. Make sure you own some Polygon Matics. If not, buy them from a reputable exchange like [Changelly](https://changelly.com/buy-crypto) or [Binance](https://binance.com).
 
    <img src="docs/images/1.jpeg" alt="Alt text" title="Optional title">
 
