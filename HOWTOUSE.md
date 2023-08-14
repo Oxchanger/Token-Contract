@@ -2,7 +2,7 @@
 
 ## What is Cryptocurrency Staking?
 
-[![YouTube Video](https://img.youtube.com/vi/3pVALQmkcX0/0.jpg)](https://www.youtube.com/watch?v=3pVALQmkcX0)
+[![YouTube Video](/docs/images/tumb.png)](https://www.youtube.com/watch?v=3pVALQmkcX0)
 
 Token staking is the process of locking up a certain amount of cryptocurrency tokens or coins in a digital wallet to support the operations of a blockchain network. By staking tokens, users become validators or delegators, allowing them to participate in the consensus mechanism and earn rewards.
 
