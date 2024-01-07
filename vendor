@@ -1,0 +1,33 @@
+// SPDX-License-Identifier: Unlicense
+pragma solidity ^0.8.4;
+import "./OxChangerCo.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+contract Vendor is Ownable {
+  OxChangerCo yourToken;
+  uint256 public tokensPerMatic = 400;
+  event BuyTokens(address buyer, uint256 amountOfMATIC, uint256 amountOfTokens);
+  constructor(address tokenAddress) {
+    yourToken = OxChangerCo(tokenAddress);
+  }
+
+  function buyTokens() public payable returns (uint256 tokenAmount) {
+    require(msg.value > 0, "You need to send some MATIC to proceed");
+    uint256 amountToBuy = msg.value * tokensPerMatic;
+
+    uint256 vendorBalance = yourToken.balanceOf(address(this));
+    require(vendorBalance >= amountToBuy, "Vendor has insufficient tokens");
+
+    (bool sent) = yourToken.transfer(msg.sender, amountToBuy);
+    require(sent, "Failed to transfer token to user");
+
+    emit BuyTokens(msg.sender, msg.value, amountToBuy);
+    return amountToBuy;
+  }
+  
+  function withdraw() public onlyOwner {
+    uint256 ownerBalance = address(this).balance;
+    require(ownerBalance > 0, "No MATIC present in Vendor");
+    (bool sent,) = msg.sender.call{value: address(this).balance}("");
+    require(sent, "Failed to withdraw");
+  }
+}
